@@ -85,3 +85,4 @@ dlmwrite([res_dir '_ssim_all.txt'], ssims', 'delimiter', '\t', 'precision','%.4f
 dlmwrite([res_dir '_aver_performance.txt'], [aver_psnr,aver_ssim], 'delimiter', '\t', 'precision','%.4f')
 
 fprintf("================\n Aver. PSNR %.2f, Aver. SSIM %.4f\n",aver_psnr, aver_ssim);
+delete(h)
