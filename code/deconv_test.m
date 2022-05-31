@@ -5,11 +5,11 @@
 %%%%%%%%%%%%%%% 
 
 %% dir
-blur_data = 'blur_kc4';
+blur_data = 'blur_kc8';
 psf_dir = 'E:\project\INFWIDE\exp\benchmark\simu_data\Hu_dataset_exp\kernel\';
 gt_dir = 'E:\project\INFWIDE\exp\benchmark\simu_data\Hu_dataset_exp\gt\';
 img_dir = ['E:\project\INFWIDE\exp\benchmark\simu_data\Hu_dataset_exp\', blur_data, '\'];
-res_dir = ['../results/', blur_data, '/'];
+res_dir = ['../results/Hu_dataset_exp/', blur_data, '/'];
 
 % file info
 [psf_names,psf_num] = listdir(psf_dir);
@@ -25,8 +25,8 @@ end
 %% param
 % sigma: standard deviation for Gaussian noise (for inlier data)
 % reg_str: regularization strength for sparse priors
-sigma = 20/255;
-reg_str = 0.01;
+sigma = 30/255;
+reg_str = 0.1;
 
 
 %% run
@@ -34,7 +34,7 @@ psnrs = zeros(img_num,1);
 ssims = zeros(img_num,1);
 h = waitbar(0, 'start deblurring');
 
-for n = 1:1
+for n = 1:img_num
 	% read data
 	img = imread(strcat(img_dir, img_names(n)));
 	img = double(img)/255;
