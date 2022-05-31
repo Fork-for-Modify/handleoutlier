@@ -59,7 +59,7 @@ for n = 1:img_num
 	psnrs(n) = psnr_n;
 	ssims(n) = ssim_n;
 
-	fprintf("PSNR %.2f, SSIM %.4f\n",psnr_n, ssim_n);
+	fprintf("#%d PSNR %.2f, SSIM %.4f\n", n, psnr_n, ssim_n);
 
 	% show & save
 	figure(1)
