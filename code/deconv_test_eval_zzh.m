@@ -59,6 +59,8 @@ for n = 1:img_num
 	psnrs(n) = psnr_n;
 	ssims(n) = ssim_n;
 
+	dlmwrite([res_dir '_psnr_all.txt'], psnr_n', '-append', 'delimiter', '\t', 'precision','%.2f')
+	dlmwrite([res_dir '_ssim_all.txt'], psnr_n', '-append', 'delimiter', '\t', 'precision','%.4f')
 	fprintf("#%d PSNR %.2f, SSIM %.4f\n", n, psnr_n, ssim_n);
 
 	% show & save
@@ -80,8 +82,6 @@ plot(1:img_num,ssims, 'b*'), title('ssims')
 
 aver_psnr = mean(psnrs);
 aver_ssim = mean(ssims);
-dlmwrite([res_dir '_psnr_all.txt'], psnrs', 'delimiter', '\t', 'precision','%.2f')
-dlmwrite([res_dir '_ssim_all.txt'], ssims', 'delimiter', '\t', 'precision','%.4f')
 dlmwrite([res_dir '_aver_performance.txt'], [aver_psnr,aver_ssim], 'delimiter', '\t', 'precision','%.4f')
 
 fprintf("================\n Aver. PSNR %.2f, Aver. SSIM %.4f\n",aver_psnr, aver_ssim);
